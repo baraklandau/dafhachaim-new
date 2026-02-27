@@ -1,65 +1,99 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { getTodaysDaf } from '@/lib/dafYomi';
+import { getMasechta } from '@/data/shas';
 
-export default function Home() {
+export default function HomePage() {
+  const todaysDaf = getTodaysDaf();
+  const masechta = getMasechta(todaysDaf.masechta);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen">
+
+      {/* ── Hero ── */}
+      <section className="bg-gradient-to-b from-amber-50 to-stone-50 px-4 py-20 text-center border-b border-amber-100">
+        <h1 className="text-5xl sm:text-6xl font-bold mb-3 text-slate-800">
+          <span className="text-amber-600">Daf</span> HaChaim
+        </h1>
+        <p className="text-slate-500 mb-12 tracking-widest uppercase text-xs font-medium">
+          A Unique Visual Learning Experience
+        </p>
+
+        {/* Today's Daf card */}
+        <div className="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-xl border border-amber-200">
+          <p className="text-slate-400 text-xs uppercase tracking-widest mb-4 font-medium">Today&apos;s Daf</p>
+
+          <div className="hebrew text-4xl font-bold text-amber-600 mb-1">
+            {masechta?.hebrewName}
+          </div>
+          <h2 className="text-2xl font-bold text-slate-700">{masechta?.name}</h2>
+          <p className="text-6xl font-bold text-slate-800 mt-1 mb-8">{todaysDaf.daf}</p>
+
+          <div className="grid grid-cols-3 gap-3">
+            {(['intro', 'shiur', 'review'] as const).map((type) => (
+              <Link
+                key={type}
+                href={`/daf/${todaysDaf.masechta}/${todaysDaf.daf}?type=${type}`}
+                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-2 rounded-xl text-sm transition-colors text-center shadow-sm"
+              >
+                {type === 'intro' ? '▶ Intro' : type === 'shiur' ? '▶ Shiur' : '▶ Review'}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ── Three shiurim ── */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <h2 className="text-2xl font-bold text-center mb-2 text-slate-700">Three Shiurim for Every Daf</h2>
+        <p className="text-center text-slate-400 text-sm mb-10">By Rabbi Shlomie Schwartzberg</p>
+        <div className="grid sm:grid-cols-3 gap-6">
+          {[
+            {
+              emoji: '⚡',
+              title: 'One Minute Intro',
+              desc: 'A concise visual overview of the key concepts — the perfect way to prepare before the daf.',
+              border: 'border-blue-200 bg-blue-50',
+              type: 'intro',
+            },
+            {
+              emoji: '📖',
+              title: 'Full Daf Shiur',
+              desc: 'Complete shiur with the daf text on screen — lines are highlighted as the Maggid Shiur explains.',
+              border: 'border-amber-200 bg-amber-50',
+              type: 'shiur',
+            },
+            {
+              emoji: '🔄',
+              title: 'Five Minute Review',
+              desc: 'Animated visual summary with charts and illustrations to reinforce the key concepts.',
+              border: 'border-green-200 bg-green-50',
+              type: 'review',
+            },
+          ].map((item) => (
+            <Link
+              key={item.type}
+              href={`/daf/${todaysDaf.masechta}/${todaysDaf.daf}?type=${item.type}`}
+              className={`rounded-2xl border-2 p-6 ${item.border} hover:shadow-md hover:-translate-y-1 transition-all block`}
+            >
+              <div className="text-4xl mb-4">{item.emoji}</div>
+              <h3 className="text-lg font-bold text-slate-700 mb-2">{item.title}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+            </Link>
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* ── Browse CTA ── */}
+      <section className="text-center px-4 pb-16">
+        <Link
+          href="/choose"
+          className="inline-block bg-slate-800 hover:bg-slate-700 text-white font-semibold px-8 py-4 rounded-2xl text-lg transition-colors shadow-md"
+        >
+          Browse All Dafim →
+        </Link>
+        <p className="text-slate-400 text-sm mt-3">Access any daf from the entire Shas</p>
+      </section>
+
     </div>
   );
 }
