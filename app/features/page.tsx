@@ -26,9 +26,9 @@ export default function FeaturesPage() {
             key={f.masechta}
             className="border border-gray-200 rounded-xl p-5 flex items-center gap-4"
           >
-            <div className="w-1.5 h-8 rounded-full bg-amber-400 flex-shrink-0" />
+            <div className="w-1.5 h-8 rounded-full bg-indigo-400 flex-shrink-0" />
             <div>
-              <div className="hebrew text-xl font-bold text-amber-500">{f.hebrewName}</div>
+              <div className="hebrew text-xl font-bold text-indigo-600">{f.hebrewName}</div>
               <div className="text-sm font-semibold text-slate-700 mt-0.5">{f.masechta} Overview</div>
               <div className="text-xs text-slate-400 mt-0.5">Full masechta introduction</div>
             </div>

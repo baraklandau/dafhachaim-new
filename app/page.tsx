@@ -11,7 +11,7 @@ export default function HomePage() {
 
       {/* ── Hero ── */}
       <section className="pt-20 pb-16 text-center">
-        <p className="text-xs font-semibold text-amber-500 uppercase tracking-widest mb-4">
+        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-4">
           A Unique Visual Learning Experience
         </p>
         <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
@@ -27,7 +27,7 @@ export default function HomePage() {
         <div className="border border-gray-200 rounded-2xl p-8 text-center">
           <p className="text-xs text-slate-400 uppercase tracking-widest mb-6 font-medium">Today&apos;s Daf</p>
 
-          <div className="hebrew text-4xl font-bold text-amber-500 mb-1">
+          <div className="hebrew text-4xl font-bold text-indigo-600 mb-1">
             {masechta?.hebrewName}
           </div>
           <p className="text-2xl font-bold text-slate-800 mb-1">{masechta?.name}</p>
@@ -40,7 +40,7 @@ export default function HomePage() {
                 href={`/daf/${todaysDaf.masechta}/${todaysDaf.daf}?type=${type}`}
                 className={`py-2.5 px-3 rounded-xl text-sm font-semibold transition-colors text-center ${
                   type === 'shiur'
-                    ? 'bg-amber-500 hover:bg-amber-600 text-white'
+                    ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
                     : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
                 }`}
               >
@@ -65,7 +65,7 @@ export default function HomePage() {
             },
             {
               title: 'Full Daf Shiur',
-              desc: 'Complete shiur with the daf text on screen, lines highlighted as the Maggid Shiur teaches.',
+              desc: 'Complete shiur with the daf text displayed alongside the Maggid Shiur.',
               type: 'shiur',
             },
             {
@@ -77,11 +77,11 @@ export default function HomePage() {
             <Link
               key={item.type}
               href={`/daf/${todaysDaf.masechta}/${todaysDaf.daf}?type=${item.type}`}
-              className="flex items-start gap-4 p-5 border border-gray-200 rounded-xl hover:border-amber-300 hover:bg-amber-50/50 transition-all block group"
+              className="flex items-start gap-4 p-5 border border-gray-200 rounded-xl hover:border-indigo-300 hover:bg-indigo-50/50 transition-all block group"
             >
-              <div className="w-2 h-2 rounded-full bg-amber-400 mt-2 flex-shrink-0" />
+              <div className="w-2 h-2 rounded-full bg-indigo-400 mt-2 flex-shrink-0" />
               <div>
-                <p className="font-semibold text-slate-800 group-hover:text-amber-600 transition-colors">{item.title}</p>
+                <p className="font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors">{item.title}</p>
                 <p className="text-sm text-slate-400 mt-0.5 leading-relaxed">{item.desc}</p>
               </div>
             </Link>
@@ -93,7 +93,7 @@ export default function HomePage() {
       <section className="mb-20 text-center">
         <Link
           href="/choose"
-          className="inline-block border border-gray-200 hover:border-amber-400 text-slate-700 hover:text-amber-600 font-semibold px-8 py-3 rounded-xl text-sm transition-all"
+          className="inline-block border border-gray-200 hover:border-indigo-400 text-slate-700 hover:text-indigo-600 font-semibold px-8 py-3 rounded-xl text-sm transition-all"
         >
           Browse All Dafim →
         </Link>

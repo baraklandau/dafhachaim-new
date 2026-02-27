@@ -18,7 +18,7 @@ export default function Navbar({ todayMasechta, todayMasectaId, todayDaf }: Prop
 
         {/* Logo */}
         <Link href="/" className="font-semibold text-slate-800 text-lg tracking-tight">
-          Daf <span className="text-amber-500">HaChaim</span>
+          Daf <span className="text-indigo-600">HaChaim</span>
         </Link>
 
         {/* Desktop nav */}
@@ -27,7 +27,7 @@ export default function Navbar({ todayMasechta, todayMasectaId, todayDaf }: Prop
           <Link href="/features" className="hover:text-slate-800 transition-colors">Features</Link>
           <Link
             href={`/daf/${todayMasectaId}/${todayDaf}`}
-            className="bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
           >
             Today: {todayMasechta} {todayDaf}
           </Link>
@@ -37,7 +37,7 @@ export default function Navbar({ todayMasechta, todayMasectaId, todayDaf }: Prop
         <div className="flex sm:hidden items-center gap-3">
           <Link
             href={`/daf/${todayMasectaId}/${todayDaf}`}
-            className="text-amber-500 text-sm font-semibold"
+            className="text-indigo-600 text-sm font-semibold"
           >
             {todayMasechta} {todayDaf}
           </Link>

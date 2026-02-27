@@ -28,7 +28,7 @@ export default async function DafPage({ params, searchParams }: Props) {
   const nextDaf = dafNum < masechta.endDaf ? dafNum + 1 : null;
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
+    <div className="max-w-5xl mx-auto px-6 py-10">
 
       {/* ── Header ── */}
       <div className="mb-8">
@@ -36,7 +36,7 @@ export default async function DafPage({ params, searchParams }: Props) {
           ← All Dafim
         </Link>
         <div className="flex items-baseline gap-3">
-          <span className="hebrew text-4xl font-bold text-amber-500">{masechta.hebrewName}</span>
+          <span className="hebrew text-4xl font-bold text-indigo-600">{masechta.hebrewName}</span>
           <h1 className="text-2xl font-bold text-slate-800">{masechta.name} · Daf {dafNum}</h1>
         </div>
       </div>
@@ -47,13 +47,13 @@ export default async function DafPage({ params, searchParams }: Props) {
       {/* ── Navigation ── */}
       <div className="flex justify-between items-center mt-10 pt-8 border-t border-gray-100 text-sm">
         {prevDaf ? (
-          <Link href={`/daf/${masechtaId}/${prevDaf}`} className="text-slate-400 hover:text-amber-500 transition-colors">
+          <Link href={`/daf/${masechtaId}/${prevDaf}`} className="text-slate-400 hover:text-indigo-600 transition-colors">
             ← {masechta.name} {prevDaf}
           </Link>
         ) : <div />}
 
         {nextDaf ? (
-          <Link href={`/daf/${masechtaId}/${nextDaf}`} className="text-slate-400 hover:text-amber-500 transition-colors">
+          <Link href={`/daf/${masechtaId}/${nextDaf}`} className="text-slate-400 hover:text-indigo-600 transition-colors">
             {masechta.name} {nextDaf} →
           </Link>
         ) : <div />}

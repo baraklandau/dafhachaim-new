@@ -34,7 +34,7 @@ export default function ChooseDafPage() {
             onClick={() => { setActiveSeder(seder); setSelectedMasechta(null); }}
             className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${
               activeSeder === seder
-                ? 'bg-amber-500 text-white border-amber-500'
+                ? 'bg-indigo-600 text-white border-indigo-600'
                 : 'bg-white text-slate-500 border-gray-200 hover:border-gray-300 hover:text-slate-700'
             }`}
           >
@@ -50,9 +50,9 @@ export default function ChooseDafPage() {
             <button
               key={m.id}
               onClick={() => setSelectedMasechta(m)}
-              className="border border-gray-200 hover:border-amber-400 rounded-xl p-4 text-left transition-all group"
+              className="border border-gray-200 hover:border-indigo-400 rounded-xl p-4 text-left transition-all group"
             >
-              <div className="hebrew text-xl font-bold text-amber-500 mb-1">{m.hebrewName}</div>
+              <div className="hebrew text-xl font-bold text-indigo-600 mb-1">{m.hebrewName}</div>
               <div className="text-sm font-semibold text-slate-700">{m.name}</div>
               <div className="text-xs text-slate-400 mt-0.5">{getDafCount(m)} dafim</div>
             </button>
@@ -71,7 +71,7 @@ export default function ChooseDafPage() {
               ← Back
             </button>
             <div>
-              <span className="hebrew text-2xl font-bold text-amber-500 mr-2">{selectedMasechta.hebrewName}</span>
+              <span className="hebrew text-2xl font-bold text-indigo-600 mr-2">{selectedMasechta.hebrewName}</span>
               <span className="text-xl font-bold text-slate-800">{selectedMasechta.name}</span>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function ChooseDafPage() {
               <Link
                 key={daf}
                 href={`/daf/${selectedMasechta.id}/${daf}`}
-                className="border border-gray-200 hover:border-amber-400 hover:bg-amber-50 rounded-lg py-2 text-center text-sm font-semibold transition-all text-slate-600 hover:text-amber-600"
+                className="border border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 rounded-lg py-2 text-center text-sm font-semibold transition-all text-slate-600 hover:text-indigo-600"
               >
                 {daf}
               </Link>
