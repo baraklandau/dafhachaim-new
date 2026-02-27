@@ -28,31 +28,32 @@ export default async function DafPage({ params, searchParams }: Props) {
   const nextDaf = dafNum < masechta.endDaf ? dafNum + 1 : null;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-3xl mx-auto px-6 py-10">
 
       {/* ── Header ── */}
-      <div className="text-center mb-8">
-        <div className="hebrew text-5xl font-bold text-amber-600 leading-tight">{masechta.hebrewName}</div>
-        <h1 className="text-2xl font-bold text-slate-700 mt-2">{masechta.name} · Daf {dafNum}</h1>
+      <div className="mb-8">
+        <Link href="/choose" className="text-xs text-slate-400 hover:text-slate-600 transition-colors mb-4 inline-block">
+          ← All Dafim
+        </Link>
+        <div className="flex items-baseline gap-3">
+          <span className="hebrew text-4xl font-bold text-amber-500">{masechta.hebrewName}</span>
+          <h1 className="text-2xl font-bold text-slate-800">{masechta.name} · Daf {dafNum}</h1>
+        </div>
       </div>
 
       {/* ── Video player ── */}
       <VideoPlayer masechta={masechtaId} daf={dafNum} initialType={initialType} />
 
       {/* ── Navigation ── */}
-      <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+      <div className="flex justify-between items-center mt-10 pt-8 border-t border-gray-100 text-sm">
         {prevDaf ? (
-          <Link href={`/daf/${masechtaId}/${prevDaf}`} className="text-slate-500 hover:text-amber-600 transition-colors text-sm">
+          <Link href={`/daf/${masechtaId}/${prevDaf}`} className="text-slate-400 hover:text-amber-500 transition-colors">
             ← {masechta.name} {prevDaf}
           </Link>
         ) : <div />}
 
-        <Link href="/choose" className="text-slate-400 hover:text-slate-600 text-sm transition-colors">
-          All Dafim
-        </Link>
-
         {nextDaf ? (
-          <Link href={`/daf/${masechtaId}/${nextDaf}`} className="text-slate-500 hover:text-amber-600 transition-colors text-sm">
+          <Link href={`/daf/${masechtaId}/${nextDaf}`} className="text-slate-400 hover:text-amber-500 transition-colors">
             {masechta.name} {nextDaf} →
           </Link>
         ) : <div />}
