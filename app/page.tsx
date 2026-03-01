@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { getTodaysDaf } from '@/lib/dafYomi';
 import { getMasechta } from '@/data/shas';
 
+export const revalidate = 3600; // re-render every hour so Today's Daf stays current
+
 export default function HomePage() {
   const todaysDaf = getTodaysDaf();
   const masechta = getMasechta(todaysDaf.masechta);

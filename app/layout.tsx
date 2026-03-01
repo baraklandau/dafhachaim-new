@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+
+export const revalidate = 3600; // re-render every hour so navbar daf stays current
 import { Geist } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
