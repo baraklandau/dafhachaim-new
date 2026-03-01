@@ -131,15 +131,14 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
               </div>
 
               {/* Download links */}
-              <div className="flex items-center gap-3 text-xs text-slate-400 flex-wrap">
-                <span>Download:</span>
-                <a href={getAudioDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Audio</a>
-                <span>&middot;</span>
-                <a href={getVideoDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Video</a>
-                <span>&middot;</span>
-                <a href={getPdfColorUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Color PDF</a>
-                <span>&middot;</span>
-                <a href={getPdfBwUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">B&W PDF</a>
+              <div className="space-y-1.5">
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Downloads</p>
+                <div className="flex flex-wrap gap-2">
+                  <a href={getAudioDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Audio</a>
+                  <a href={getVideoDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Video</a>
+                  <a href={getPdfColorUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Color PDF</a>
+                  <a href={getPdfBwUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ B&W PDF</a>
+                </div>
               </div>
             </div>
           </div>
@@ -193,15 +192,14 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
           </div>
 
           {/* Download links */}
-          <div className="flex items-center gap-3 pt-1 text-sm text-slate-400 flex-wrap">
-            <span>Download:</span>
-            <a href={getAudioDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Audio</a>
-            <span>&middot;</span>
-            <a href={getVideoDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Video</a>
-            <span>&middot;</span>
-            <a href={getPdfColorUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Color PDF</a>
-            <span>&middot;</span>
-            <a href={getPdfBwUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">B&W PDF</a>
+          <div className="space-y-1.5 pt-1">
+            <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Downloads</p>
+            <div className="flex flex-wrap gap-2">
+              <a href={getAudioDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Audio</a>
+              <a href={getVideoDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Video</a>
+              <a href={getPdfColorUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Color PDF</a>
+              <a href={getPdfBwUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ B&W PDF</a>
+            </div>
           </div>
         </div>
       )}
