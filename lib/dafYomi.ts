@@ -16,10 +16,10 @@ function buildDafArray(): DafEntry[] {
 const DAF_ARRAY = buildDafArray();
 const TOTAL_DAFIM = DAF_ARRAY.length;
 
-// Reference point confirmed from the live site (Network tab, Feb 26 2026)
-const REFERENCE_DATE = new Date('2026-02-26T00:00:00Z');
+// Reference point confirmed by user: March 1 2026 = Menachos 49
+const REFERENCE_DATE = new Date('2026-03-01T00:00:00Z');
 const REFERENCE_MASECHTA = 'menachos';
-const REFERENCE_DAF = 47;
+const REFERENCE_DAF = 49;
 
 const referenceIndex = DAF_ARRAY.findIndex(
   (d) => d.masechta === REFERENCE_MASECHTA && d.daf === REFERENCE_DAF
