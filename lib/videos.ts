@@ -4,7 +4,7 @@ const OLD_API    = 'https://dafhachaim.org/api/dappim';
 
 // Rackspace server — PDFs and other legacy resources live here.
 // Update this one constant if the IP ever changes.
-export const LEGACY_SERVER = 'https://198.101.226.202';
+export const LEGACY_SERVER = 'http://198.101.226.202';
 
 export type VideoType = 'intro' | 'shiur' | 'review';
 
