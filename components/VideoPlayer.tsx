@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { getVideoUrl, getAudioDownloadUrl, getVideoDownloadUrl, VIDEO_TYPES, VideoType } from '@/lib/videos';
+import { getVideoUrl, getAudioDownloadUrl, getVideoDownloadUrl, getPdfColorUrl, getPdfBwUrl, VIDEO_TYPES, VideoType } from '@/lib/videos';
 
 // Daf page images are hosted on assets.dafapp.com
 // URL pattern: https://assets.dafapp.com/dappim/{masechta}/{daf}/a.png
@@ -131,11 +131,15 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
               </div>
 
               {/* Download links */}
-              <div className="flex items-center gap-3 text-xs text-slate-400">
+              <div className="flex items-center gap-3 text-xs text-slate-400 flex-wrap">
                 <span>Download:</span>
                 <a href={getAudioDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Audio</a>
                 <span>&middot;</span>
                 <a href={getVideoDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Video</a>
+                <span>&middot;</span>
+                <a href={getPdfColorUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Color PDF</a>
+                <span>&middot;</span>
+                <a href={getPdfBwUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">B&W PDF</a>
               </div>
             </div>
           </div>
@@ -189,11 +193,15 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
           </div>
 
           {/* Download links */}
-          <div className="flex items-center gap-4 pt-1 text-sm text-slate-400">
+          <div className="flex items-center gap-3 pt-1 text-sm text-slate-400 flex-wrap">
             <span>Download:</span>
             <a href={getAudioDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Audio</a>
             <span>&middot;</span>
             <a href={getVideoDownloadUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Video</a>
+            <span>&middot;</span>
+            <a href={getPdfColorUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">Color PDF</a>
+            <span>&middot;</span>
+            <a href={getPdfBwUrl(masechta, daf)} className="hover:text-indigo-600 transition-colors font-medium" target="_blank" rel="noopener noreferrer">B&W PDF</a>
           </div>
         </div>
       )}

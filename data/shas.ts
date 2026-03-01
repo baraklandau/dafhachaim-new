@@ -18,7 +18,7 @@ export const MASECHTOS: Masechta[] = [
   { id: 'pesachim',     name: 'Pesachim',     hebrewName: 'פסחים',      seder: 'Moed',    startDaf: 2, endDaf: 121 },
   { id: 'shekalim',     name: 'Shekalim',     hebrewName: 'שקלים',      seder: 'Moed',    startDaf: 2, endDaf: 22  },
   { id: 'yoma',         name: 'Yoma',         hebrewName: 'יומא',       seder: 'Moed',    startDaf: 2, endDaf: 88  },
-  { id: 'sukkah',       name: 'Sukkah',       hebrewName: 'סוכה',       seder: 'Moed',    startDaf: 2, endDaf: 56  },
+  { id: 'succah',       name: 'Sukkah',       hebrewName: 'סוכה',       seder: 'Moed',    startDaf: 2, endDaf: 56  },
   { id: 'beitzah',      name: 'Beitzah',      hebrewName: 'ביצה',       seder: 'Moed',    startDaf: 2, endDaf: 40  },
   { id: 'rosh_hashana', name: 'Rosh Hashana', hebrewName: 'ראש השנה',   seder: 'Moed',    startDaf: 2, endDaf: 35  },
   { id: 'taanis',       name: 'Taanis',       hebrewName: 'תענית',      seder: 'Moed',    startDaf: 2, endDaf: 31  },
