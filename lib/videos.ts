@@ -15,7 +15,7 @@ export const VIDEO_TYPES: { id: VideoType; label: string; description: string }[
 ];
 
 // Older masechtos use .mp4 (not .webm) and review is on audio.dafapp.com
-const LEGACY_MP4_MASECHTOS = new Set(['succah']);
+const LEGACY_MP4_MASECHTOS = new Set(['succah', 'horayos']);
 
 export function getVideoUrl(masechta: string, daf: number, type: VideoType): string {
   if (type === 'shiur') {

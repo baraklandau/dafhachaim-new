@@ -43,7 +43,7 @@ export const MASECHTOS: Masechta[] = [
   { id: 'makkos',       name: 'Makkos',       hebrewName: 'מכות',       seder: 'Nezikin', startDaf: 2, endDaf: 24  },
   { id: 'shevuos',      name: 'Shevuos',      hebrewName: 'שבועות',     seder: 'Nezikin', startDaf: 2, endDaf: 49  },
   { id: 'avoda_zara',   name: 'Avoda Zara',   hebrewName: 'עבודה זרה',  seder: 'Nezikin', startDaf: 2, endDaf: 76  },
-  { id: 'horios',       name: 'Horios',       hebrewName: 'הוריות',     seder: 'Nezikin', startDaf: 2, endDaf: 14  },
+  { id: 'horayos',      name: 'Horios',       hebrewName: 'הוריות',     seder: 'Nezikin', startDaf: 2, endDaf: 14  },
 
   // ─── Seder Kodshim ──────────────────────────────────────────
   { id: 'zevachim',     name: 'Zevachim',     hebrewName: 'זבחים',      seder: 'Kodshim', startDaf: 2, endDaf: 120 },
