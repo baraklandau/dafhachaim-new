@@ -23,7 +23,7 @@ export default function Navbar({ todayMasechta, todayMasectaId, todayDaf }: Prop
 
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-8 text-sm text-slate-500">
-          <Link href="/choose" className="hover:text-slate-800 transition-colors">Browse</Link>
+          <Link href="/choose" className="hover:text-slate-800 transition-colors">Select a Daf</Link>
           <Link href="/features" className="hover:text-slate-800 transition-colors">Features</Link>
           <Link
             href={`/daf/${todayMasectaId}/${todayDaf}`}
@@ -54,7 +54,7 @@ export default function Navbar({ todayMasechta, todayMasectaId, todayDaf }: Prop
       {menuOpen && (
         <div className="sm:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm text-slate-600">
           <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-slate-900">Home</Link>
-          <Link href="/choose" onClick={() => setMenuOpen(false)} className="hover:text-slate-900">Browse All Dafim</Link>
+          <Link href="/choose" onClick={() => setMenuOpen(false)} className="hover:text-slate-900">Select a Daf</Link>
           <Link href="/features" onClick={() => setMenuOpen(false)} className="hover:text-slate-900">Feature Presentations</Link>
         </div>
       )}
