@@ -16,6 +16,7 @@ function fetchFromRackspace(url: string, hops = 0): Promise<FetchResult> {
       port: urlObj.port ? Number(urlObj.port) : (isHttps ? 443 : 80),
       path: urlObj.pathname + urlObj.search,
       rejectUnauthorized: false,
+      headers: { Host: 'dafhachaim.org' },
     };
 
     const handler = (res: http.IncomingMessage) => {
