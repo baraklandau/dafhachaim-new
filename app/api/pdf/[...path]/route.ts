@@ -1,14 +1,41 @@
 import { NextRequest, NextResponse } from 'next/server';
 import https from 'node:https';
+import http from 'node:http';
 
 // Proxy PDF downloads from the Rackspace server.
 // The Rackspace server has an untrusted SSL cert, so browsers can't reach it
 // directly. Vercel fetches it server-side (bypassing the cert check) and
 // streams it back to the browser over our trusted dafhachaim.org connection.
+// Redirects are followed automatically.
 
-function fetchFromRackspace(url: string): Promise<{ buffer: Buffer; contentType: string; contentDisposition: string }> {
+type FetchResult = { buffer: Buffer; contentType: string; contentDisposition: string };
+
+function fetchFromRackspace(url: string, hops = 0): Promise<FetchResult> {
+  if (hops > 5) return Promise.reject(new Error('Too many redirects'));
+
   return new Promise((resolve, reject) => {
-    https.get(url, { rejectUnauthorized: false }, (res) => {
+    const urlObj = new URL(url);
+    const isHttps = urlObj.protocol === 'https:';
+    const options = {
+      hostname: urlObj.hostname,
+      port: urlObj.port || (isHttps ? 443 : 80),
+      path: urlObj.pathname + urlObj.search,
+      rejectUnauthorized: false,
+    };
+
+    const get = isHttps ? https.get : http.get;
+
+    get(options as Parameters<typeof https.get>[0], (res) => {
+      // Follow redirects
+      if (res.statusCode && [301, 302, 303, 307, 308].includes(res.statusCode) && res.headers.location) {
+        const next = res.headers.location.startsWith('http')
+          ? res.headers.location
+          : `${urlObj.origin}${res.headers.location}`;
+        res.resume(); // drain the redirect response body
+        fetchFromRackspace(next, hops + 1).then(resolve).catch(reject);
+        return;
+      }
+
       const chunks: Buffer[] = [];
       res.on('data', (chunk: Buffer) => chunks.push(chunk));
       res.on('end', () => resolve({
