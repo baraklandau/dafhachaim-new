@@ -11,7 +11,7 @@ export type VideoType = 'intro' | 'shiur' | 'review';
 export const VIDEO_TYPES: { id: VideoType; label: string; description: string }[] = [
   { id: 'intro',  label: 'One Minute Intro',  description: 'A concise visual introduction to the daf' },
   { id: 'shiur',  label: 'Full Daf Shiur',    description: 'Complete shiur with synchronized highlighted text' },
-  { id: 'review', label: 'Five Minute Review', description: 'Animated visual review of key concepts' },
+  { id: 'review', label: '8 Minute Review', description: 'Animated visual review of key concepts' },
 ];
 
 // Older masechtos use .mp4 (not .webm) and review is on audio.dafapp.com
