@@ -2,12 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import https from 'node:https';
 import http from 'node:http';
 
-// Proxy PDF downloads from the Rackspace server.
-// The Rackspace server has an untrusted SSL cert, so browsers can't reach it
-// directly. Vercel fetches it server-side (bypassing the cert check) and
-// streams it back to the browser over our trusted dafhachaim.org connection.
-// Redirects are followed automatically.
-
 type FetchResult = { buffer: Buffer; contentType: string; contentDisposition: string };
 
 function fetchFromRackspace(url: string, hops = 0): Promise<FetchResult> {
@@ -16,26 +10,23 @@ function fetchFromRackspace(url: string, hops = 0): Promise<FetchResult> {
   return new Promise((resolve, reject) => {
     const urlObj = new URL(url);
     const isHttps = urlObj.protocol === 'https:';
+
     const options = {
       hostname: urlObj.hostname,
-      port: urlObj.port || (isHttps ? 443 : 80),
+      port: urlObj.port ? Number(urlObj.port) : (isHttps ? 443 : 80),
       path: urlObj.pathname + urlObj.search,
       rejectUnauthorized: false,
     };
 
-    const get = isHttps ? https.get : http.get;
-
-    get(options as Parameters<typeof https.get>[0], (res) => {
-      // Follow redirects
+    const handler = (res: http.IncomingMessage) => {
       if (res.statusCode && [301, 302, 303, 307, 308].includes(res.statusCode) && res.headers.location) {
         const next = res.headers.location.startsWith('http')
           ? res.headers.location
-          : `${urlObj.origin}${res.headers.location}`;
-        res.resume(); // drain the redirect response body
+          : `${urlObj.protocol}//${urlObj.host}${res.headers.location}`;
+        res.resume();
         fetchFromRackspace(next, hops + 1).then(resolve).catch(reject);
         return;
       }
-
       const chunks: Buffer[] = [];
       res.on('data', (chunk: Buffer) => chunks.push(chunk));
       res.on('end', () => resolve({
@@ -44,7 +35,10 @@ function fetchFromRackspace(url: string, hops = 0): Promise<FetchResult> {
         contentDisposition: res.headers['content-disposition'] || 'attachment',
       }));
       res.on('error', reject);
-    }).on('error', reject);
+    };
+
+    const req = isHttps ? https.get(options, handler) : http.get(options, handler);
+    req.on('error', reject);
   });
 }
 
