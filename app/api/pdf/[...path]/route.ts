@@ -30,7 +30,7 @@ export async function GET(
 
   try {
     const { buffer, contentType, contentDisposition } = await fetchFromRackspace(url);
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array(buffer), {
       headers: {
         'Content-Type': contentType,
         'Content-Disposition': contentDisposition,
