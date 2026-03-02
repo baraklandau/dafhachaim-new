@@ -45,9 +45,9 @@ export function getVideoDownloadUrl(masechta: string, daf: number): string {
 }
 
 export function getPdfColorUrl(masechta: string, daf: number): string {
-  return `${LEGACY_SERVER}/api/dappim/${masechta}_${daf}/download/pdf/color`;
+  return `/api/pdf/${masechta}_${daf}/download/pdf/color`;
 }
 
 export function getPdfBwUrl(masechta: string, daf: number): string {
-  return `${LEGACY_SERVER}/api/dappim/${masechta}_${daf}/download/pdf/bw`;
+  return `/api/pdf/${masechta}_${daf}/download/pdf/bw`;
 }
