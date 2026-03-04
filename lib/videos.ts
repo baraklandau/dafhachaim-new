@@ -35,15 +35,18 @@ export function getAudioUrl(masechta: string, daf: number, type: VideoType): str
   return getVideoUrl(masechta, daf, type);
 }
 
-// Download links
+// Download links — routed through our proxy (/api/pdf/[...path]) which
+// fetches from the Rackspace server server-side, bypassing its bad SSL cert.
 export function getAudioDownloadUrl(masechta: string, daf: number): string {
-  return `${OLD_API}/${masechta}_${daf}/download/audio`;
+  return `/api/pdf/${masechta}_${daf}/download/audio`;
 }
 
 export function getVideoDownloadUrl(masechta: string, daf: number): string {
-  return `${OLD_API}/${masechta}_${daf}/download/video`;
+  return `/api/pdf/${masechta}_${daf}/download/video`;
 }
 
+// PDFs are currently broken on the Rackspace server (500 error).
+// These functions are kept for when the server is fixed.
 export function getPdfColorUrl(masechta: string, daf: number): string {
   return `/api/pdf/${masechta}_${daf}/download/pdf/color`;
 }

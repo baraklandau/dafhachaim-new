@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { getVideoUrl, getAudioDownloadUrl, getVideoDownloadUrl, getPdfColorUrl, getPdfBwUrl, VIDEO_TYPES, VideoType } from '@/lib/videos';
+import { getVideoUrl, getAudioDownloadUrl, getVideoDownloadUrl, VIDEO_TYPES, VideoType } from '@/lib/videos';
 
 // Daf page images are hosted on assets.dafapp.com
 // URL pattern: https://assets.dafapp.com/dappim/{masechta}/{daf}/a.png
@@ -136,8 +136,6 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
                 <div className="flex flex-wrap gap-2">
                   <a href={getAudioDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Audio</a>
                   <a href={getVideoDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Video</a>
-                  <a href={getPdfColorUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Color PDF</a>
-                  <a href={getPdfBwUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ B&W PDF</a>
                 </div>
               </div>
             </div>
@@ -197,8 +195,6 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
             <div className="flex flex-wrap gap-2">
               <a href={getAudioDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Audio</a>
               <a href={getVideoDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Video</a>
-              <a href={getPdfColorUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Color PDF</a>
-              <a href={getPdfBwUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ B&W PDF</a>
             </div>
           </div>
         </div>
