@@ -130,14 +130,14 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
                 ))}
               </div>
 
-              {/* Download links */}
-              <div className="space-y-1.5">
+              {/* Download links hidden until fixed */}
+              {false && <div className="space-y-1.5">
                 <p className="text-sm text-slate-700 font-semibold">↓ Downloads</p>
                 <div className="flex flex-wrap gap-2">
                   <a href={getAudioDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Audio</a>
                   <a href={getVideoDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Video</a>
                 </div>
-              </div>
+              </div>}
             </div>
           </div>
         </div>
@@ -189,14 +189,14 @@ export default function VideoPlayer({ masechta, daf, initialType = 'intro' }: Pr
             )}
           </div>
 
-          {/* Download links */}
-          <div className="space-y-1.5 pt-1">
+          {/* Download links hidden until fixed */}
+          {false && <div className="space-y-1.5 pt-1">
             <p className="text-sm text-slate-700 font-semibold">↓ Downloads</p>
             <div className="flex flex-wrap gap-2">
               <a href={getAudioDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Audio</a>
               <a href={getVideoDownloadUrl(masechta, daf)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" target="_blank" rel="noopener noreferrer">↓ Video</a>
             </div>
-          </div>
+          </div>}
         </div>
       )}
 
