@@ -61,7 +61,7 @@ export default function HomePage() {
         <div className="space-y-3">
           {[
             {
-              title: '8 Minute Intro',
+              title: 'One Minute Intro',
               desc: 'A concise visual overview of key concepts — perfect to watch before you begin the daf.',
               type: 'intro',
             },
@@ -71,7 +71,7 @@ export default function HomePage() {
               type: 'shiur',
             },
             {
-              title: 'Five Minute Review',
+              title: '8 Minute Review',
               desc: 'Animated visual summary with charts and illustrations to reinforce what you learned.',
               type: 'review',
             },
