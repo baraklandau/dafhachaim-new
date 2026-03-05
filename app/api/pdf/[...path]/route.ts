@@ -56,6 +56,7 @@ export async function GET(
       headers: {
         'Content-Type': contentType,
         'Content-Disposition': contentDisposition,
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=3600',
       },
     });
   } catch {

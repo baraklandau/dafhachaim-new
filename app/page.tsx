@@ -61,7 +61,7 @@ export default function HomePage() {
         <div className="space-y-3">
           {[
             {
-              title: 'One Minute Intro',
+              title: '8 Minute Intro',
               desc: 'A concise visual overview of key concepts — perfect to watch before you begin the daf.',
               type: 'intro',
             },
